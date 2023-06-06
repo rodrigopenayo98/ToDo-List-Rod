@@ -1,0 +1,31 @@
+{
+  "name": "todo-list-rod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --open 'Firefox'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigopenayo98/ToDo-List-Rod.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigopenayo98/ToDo-List-Rod/issues"
+  },
+  "homepage": "https://github.com/rodrigopenayo98/ToDo-List-Rod#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.1",
+    "webpack": "^5.85.1",
+    "webpack-cli": "^5.1.3",
+    "webpack-dev-server": "^4.15.0"
+  },
+  "dependencies": {
+    "path": "^0.12.7"
+  }
+}
