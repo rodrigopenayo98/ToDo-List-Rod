@@ -1,3 +1,107 @@
-h1 {
-  color: bisque;
+body {
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+#main-container {
+  border: 1px solid #dad9d9;
+  width: 450px;
+  height: auto;
+}
+
+#title-list {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+  color: grey;
+}
+
+#title-list-container {
+  display: flex;
+  width: 420px;
+  height: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+#input-container {
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid rgb(215, 214, 214);
+  display: flex;
+  align-items: center;
+}
+
+#text {
+  width: 390px;
+  height: 20px;
+  padding: 15px 5px 15px 15px;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+}
+
+#text::placeholder {
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+}
+
+#button-container {
+  height: 50px;
+  border-top: 1px solid rgb(215, 214, 214);
+}
+
+#btn-clear {
+  height: 100%;
+  width: 100%;
+  border: none;
+  color: #9f9c9c;
+  background-color: #f0efef;
+}
+
+#btn-clear:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+#taskList {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.item-task {
+  height: 40px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgb(215, 214, 214);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  position: relative;
+}
+
+.checkbox {
+  margin-right: 390px;
+}
+
+.task-name {
+  position: absolute;
+  left: 35px;
+  top: 15px;
 }
