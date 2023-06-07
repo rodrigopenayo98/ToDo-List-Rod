@@ -7,7 +7,6 @@
   - [🛠️ Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -54,12 +53,6 @@ This is an application that has the function of being a reminder of pending task
 - *[Add CSS]*
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo
-
-To see the display of my portfolio use this link: (https://github.com/rodrigopenayo98/ToDo-List-Rod)
 
 
 <!-- GETTING STARTED -->
