@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack</title>
-</head>
-<body>
-  <h1>Hello Webpack!</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Webpack</title>
+  </head>
+  <body>
+    <section id="main-container">
+      <div id="title-list-container">
+        <h2 id="title-list">Demo</h2>
+        <img id="img-arrow" src="./img/actualizar.png" alt="" />
+      </div>
+      <div id="input-container">
+        <input type="text" id="text" placeholder="Add to your list..." />
+        <img src="img/flecha-girar-hacia-abajo-a-la-izquierda.png" id="img-enter" alt="" />
+      </div>
+      <div id="tasks-container">
+        <ul id="taskList"></ul>
+      </div>
+      <div id="button-container">
+        <button id="btn-clear">Clear all completed</button>
+      </div>
+    </section>
+  </body>
 </html>
