@@ -17,6 +17,15 @@ body{
   font-size: 15px;
 }
 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  color: grey;
+}
+
 #title-list-container {
   display: flex;
   width: 420px;
@@ -24,12 +33,6 @@ body{
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-}
-
-#img-arrow {
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
 }
 
 #input-container {
@@ -43,16 +46,10 @@ body{
 #text {
   width: 390px;
   height: 20px;
-  padding: 15px;
+  padding: 15px 5px 15px 15px;
   border: none;
   font-family: 'Open Sans', sans-serif;
   font-style: italic;
-}
-
-#img-enter{
-  width: 10px;
-  height: 10px;
-  cursor: pointer;
 }
 
 #text::placeholder {
@@ -60,11 +57,13 @@ body{
   font-style: italic;
 }
 
-/* #tasks-container{
-   width: 450px;
-  height: 50px;
-  border-top: 1px solid rgb(215, 214, 214); 
-}  */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
 
 #button-container{
   height: 50px;
@@ -84,6 +83,38 @@ background-color: #f0efef;
   color: black;
 }
 
-#taskList{
-  display: none;
+#input-container{
+  padding: 0px;
 }
+
+#taskList{
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+.item-task{
+  height: 40px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgb(215, 214, 214);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  position: relative;
+}
+
+.checkbox{
+  margin-right: 390px;
+}
+
+.task-name{
+  position: absolute;
+  left: 35px;
+  top: 15px;
+}
+
