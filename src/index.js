@@ -1,5 +1,5 @@
 import "./style.css";
-import { addTask, removeTask, editTaskDescription } from "./taskManager";
+import { addTask, changeToIcon, removeTask, editTaskDescription } from "./taskManager";
 
 let tasks = [];
 
@@ -28,11 +28,19 @@ function generateTaskList() {
 
     const icon = document.createElement("span");
     icon.classList.add("material-symbols-outlined");
+    icon.classList.add("options");
     icon.textContent = "more_vert";
+
+    const icon2 = document.createElement("span");
+    icon2.classList.add("material-symbols-outlined");
+    icon2.classList.add("trash");
+    icon2.textContent = "delete";
+    icon2.style.display = "none"; // Ocultar el icono
 
     elementList.appendChild(checkbox);
     elementList.appendChild(description);
     elementList.appendChild(icon);
+    elementList.appendChild(icon2);
 
     if (task.completed) {
       elementList.classList.add("completed");
@@ -56,3 +64,17 @@ window.addEventListener("DOMContentLoaded", () => {
   tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   generateTaskList();
 });
+
+const taskList = document.getElementById("taskList");
+
+taskList.addEventListener("click", (event) => {
+  const item = event.target.closest(".item-task");
+  if (item) {
+    changeToIcon(item);
+  }
+});
+
+
+
+
+
