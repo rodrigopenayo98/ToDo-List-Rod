@@ -24,6 +24,7 @@ body {
     'GRAD' 0,
     'opsz' 48;
   color: grey;
+  cursor: pointer;
 }
 
 #title-list-container {
