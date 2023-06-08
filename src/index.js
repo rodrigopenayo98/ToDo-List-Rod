@@ -1,5 +1,5 @@
 import "./style.css";
-import { addTask, changeToIcon, removeTask, editTaskDescription } from "./taskManager";
+import { addTask, changeToIcon, handleTaskNameInput, removeTask } from "./taskManager";
 
 let tasks = [];
 
@@ -22,9 +22,16 @@ function generateTaskList() {
       elementList.classList.toggle("completed");
     });
 
-    const description = document.createElement("span");
-    description.textContent = task.description;
+    const description = document.createElement("input");
+    description.type = "text";
+    description.value = task.description;
     description.classList.add("task-name");
+    description.addEventListener("input", (event) => {
+      const newDescription = event.target.value;
+      const taskIndex = tasks.findIndex((t) => t.index === task.index);
+      tasks[taskIndex].description = newDescription;
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    });
 
     const icon = document.createElement("span");
     icon.classList.add("material-symbols-outlined");
@@ -91,6 +98,14 @@ document.addEventListener("click", (event) => {
     changeToIcon(item);
   }
 });
+
+const taskNames = document.getElementsByClassName("task-name");
+Array.from(taskNames).forEach((taskName) => {
+  taskName.addEventListener("input", handleTaskNameInput);
+});
+
+
+
 
 
 

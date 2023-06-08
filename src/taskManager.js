@@ -1,5 +1,5 @@
 export function addTask(description) {
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
   const newTask = {
     description: description,
@@ -9,11 +9,11 @@ export function addTask(description) {
 
   tasks.push(newTask);
 
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 export function removeTask(index) {
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
   if (index >= 1 && index <= tasks.length) {
     tasks.splice(index - 1, 1);
@@ -22,7 +22,7 @@ export function removeTask(index) {
       tasks[i].index = i + 1;
     }
 
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }
 }
 
@@ -41,18 +41,26 @@ export function changeToIcon(item) {
   }
 }
 
+export function editTaskDescription(taskIndex, newDescription) {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-export function editTaskDescription(index, newDescription) {
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  if (taskIndex >= 0 && taskIndex < tasks.length) {
+    tasks[taskIndex].description = newDescription;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+}
 
-  tasks.forEach((task) => {
-    if (task.index === index) {
-      task.description = newDescription;
-    }
-  });
+export function handleTaskNameInput(event) {
+  const taskNameInput = event.target;
+  const taskItem = taskNameInput.closest(".item-task");
+  const index = Array.from(taskItem.parentNode.children).indexOf(taskItem);
+  const newDescription = taskNameInput.value;
+  editTaskDescription(index, newDescription);
+}
 
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-};
+
+
+
 
 
 
