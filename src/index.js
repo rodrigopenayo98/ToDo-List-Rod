@@ -65,14 +65,43 @@ window.addEventListener("DOMContentLoaded", () => {
   generateTaskList();
 });
 
-const taskList = document.getElementById("taskList");
+document.addEventListener("click", (event) => {
+  const target = event.target;
+  const item = target.closest(".item-task");
+  const items = document.querySelectorAll(".item-task");
 
-taskList.addEventListener("click", (event) => {
-  const item = event.target.closest(".item-task");
-  if (item) {
+  if (!item) {
+    items.forEach((item) => {
+      const options = item.querySelector(".options");
+      const trash = item.querySelector(".trash");
+      item.classList.remove("active");
+      options.style.display = "inline";
+      trash.style.display = "none";
+    });
+  } else {
+    items.forEach((otherItem) => {
+      if (otherItem !== item) {
+        const options = otherItem.querySelector(".options");
+        const trash = otherItem.querySelector(".trash");
+        otherItem.classList.remove("active");
+        options.style.display = "inline";
+        trash.style.display = "none";
+      }
+    });
     changeToIcon(item);
   }
 });
+
+
+
+
+
+
+
+
+
+
+
 
 
 

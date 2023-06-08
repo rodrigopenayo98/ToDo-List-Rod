@@ -30,14 +30,17 @@ export function changeToIcon(item) {
   const options = item.querySelector(".options");
   const trash = item.querySelector(".trash");
 
-  if (options.style.display === "none") {
+  if (item.classList.contains("active")) {
+    item.classList.remove("active");
     options.style.display = "inline";
     trash.style.display = "none";
   } else {
+    item.classList.add("active");
     options.style.display = "none";
     trash.style.display = "inline";
   }
 }
+
 
 export function editTaskDescription(index, newDescription) {
   const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -50,5 +53,7 @@ export function editTaskDescription(index, newDescription) {
 
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
+
+
 
 

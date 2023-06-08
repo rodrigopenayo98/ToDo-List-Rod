@@ -98,6 +98,11 @@ body {
   cursor: pointer;
 }
 
+.item-task.active {
+  border: 1px solid rgb(19, 177, 245);
+}
+
+
 .checkbox {
   margin-right: 390px;
 }
