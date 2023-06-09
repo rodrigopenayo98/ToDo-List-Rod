@@ -20,16 +20,15 @@ export function removeTask(index, elementList) {
 
   if (index >= 1 && index <= tasks.length) {
     tasks.splice(index - 1, 1);
-    for (let i = index - 1; i < tasks.length; i++) {
+    for (let i = index; i < tasks.length; i++) {
       tasks[i].index = i;
     }
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
     elementList.remove();
-   // console.log(elementList);
-    //console.log(tasks);
   }
 }
+
 
 
 
