@@ -65,3 +65,18 @@ export function handleTaskNameInput(event) {
   const newDescription = taskNameInput.value;
   editTaskDescription(index, newDescription);
 }  
+
+export function removeCompletedTasks(tasks) {
+  const filteredTasks = tasks.filter(task => !task.completed);
+  console.log(filteredTasks);
+  localStorage.setItem("tasks", JSON.stringify(filteredTasks));
+
+  generateTaskList();
+  
+}
+
+
+
+
+
+

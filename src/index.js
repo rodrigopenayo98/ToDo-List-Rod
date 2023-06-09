@@ -1,5 +1,5 @@
 import "./style.css";
-import { addTask, changeToIcon, handleTaskNameInput, removeTask } from "./taskManager";
+import { addTask, changeToIcon, handleTaskNameInput, removeTask, removeCompletedTasks } from "./taskManager";
 import { renderTaskList } from "./render";
 
 export let tasks = [];
@@ -56,6 +56,23 @@ export function generateTaskList() {
       elementList.classList.add("completed");
     }
     taskList.appendChild(elementList);
+    const checkbox1 = document.querySelectorAll(".checkbox") 
+    checkbox1.forEach((checkbox) => 
+    { checkbox.addEventListener('change', (event) => {
+      const currentState = event.target.checked;
+      let previousState = checkbox.checked;
+      console.log(currentState);
+      
+      if (currentState !== previousState) {
+        tasks.forEach((task) => {
+          if (task.description === inputText.value) {
+            task.completed = currentState;
+          }
+        });
+        storeLocalStorage(tasks);
+      }
+      previousState = currentState;
+    });})
   });
 }
 
@@ -85,8 +102,14 @@ document.addEventListener("click", (event) => {
       const options = item.querySelector(".options");
       const trash = item.querySelector(".trash");
       item.classList.remove("active");
-      options.style.display = "inline";
-      trash.style.display = "none";
+  
+      // Verificar si el elemento existe antes de acceder a la propiedad style
+      if (options) {
+        options.style.display = "inline";
+      }
+      if (trash) {
+        trash.style.display = "none";
+      }
     });
   } else {
     items.forEach((otherItem) => {
@@ -94,33 +117,24 @@ document.addEventListener("click", (event) => {
         const options = otherItem.querySelector(".options");
         const trash = otherItem.querySelector(".trash");
         otherItem.classList.remove("active");
-        options.style.display = "inline";
-        trash.style.display = "none";
+  
+        // Verificar si el elemento existe antes de acceder a la propiedad style
+        if (options) {
+          options.style.display = "inline";
+        }
+        if (trash) {
+          trash.style.display = "none";
+        }
       }
     });
     changeToIcon(item);
   }
+  
 });
+console.log("-----------1");
 
-window.addEventListener("DOMContentLoaded", () => {
-  const btnClear = document.getElementById("btn-clear");
-  btnClear.addEventListener("click", (event) => {
-    event.preventDefault(); // Prevenir la recarga predeterminada de la página
-
-    const taskItems = document.querySelectorAll(".item-task");
-
-    taskItems.forEach((item) => {
-      const completed = item.classList.contains("completed");
-      const index = Array.from(item.parentNode.children).indexOf(item);
-
-      if (completed) {
-        removeCompletedTask(index, item);
-      }
-    });
-  });
-});
-
-
+const btnClear = document.getElementById("btn-clear");
+btnClear.addEventListener("click", removeCompletedTasks(tasks));
 
 window.removeTask = removeTask;
 window.generateTaskList = generateTaskList;
