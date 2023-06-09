@@ -16,25 +16,23 @@ export function addTask(description) {
 }
 
 export function removeTask(index, elementList) {
-  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
   if (index >= 1 && index <= tasks.length) {
     tasks.splice(index - 1, 1);
-    for (let i = index; i < tasks.length; i++) {
-      tasks[i].index = i;
-    }
-
+    updateTaskIndices(tasks);
     localStorage.setItem("tasks", JSON.stringify(tasks));
     elementList.remove();
+    location.reload(); // Actualizar la página de forma discreta
   }
 }
 
 
-
-
-
-
-
+function updateTaskIndices(tasks) {
+  for (let i = 0; i < tasks.length; i++) {
+    tasks[i].index = i + 1;
+  }
+}
 
 export function changeToIcon(item) {
   const options = item.querySelector(".options");
@@ -66,74 +64,4 @@ export function handleTaskNameInput(event) {
   const index = Array.from(taskItem.parentNode.children).indexOf(taskItem);
   const newDescription = taskNameInput.value;
   editTaskDescription(index, newDescription);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}  

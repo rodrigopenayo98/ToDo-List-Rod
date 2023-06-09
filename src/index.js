@@ -44,7 +44,6 @@ export function generateTaskList() {
     icon2.textContent = "delete";
     icon2.addEventListener("click", () => {
       removeTask(task.index, elementList);
-      //generateTaskList();
     });
     icon2.style.display = "none"; // Ocultar el icono
 
@@ -103,75 +102,25 @@ document.addEventListener("click", (event) => {
   }
 });
 
-const taskNames = document.getElementsByClassName("task-name");
-Array.from(taskNames).forEach((taskName) => {
-  taskName.addEventListener("input", handleTaskNameInput);
+window.addEventListener("DOMContentLoaded", () => {
+  const btnClear = document.getElementById("btn-clear");
+  btnClear.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevenir la recarga predeterminada de la página
+
+    const taskItems = document.querySelectorAll(".item-task");
+
+    taskItems.forEach((item) => {
+      const completed = item.classList.contains("completed");
+      const index = Array.from(item.parentNode.children).indexOf(item);
+
+      if (completed) {
+        removeCompletedTask(index, item);
+      }
+    });
+  });
 });
+
+
 
 window.removeTask = removeTask;
 window.generateTaskList = generateTaskList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
