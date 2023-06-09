@@ -1,3 +1,6 @@
+import { generateTaskList } from "./index";
+import { renderTaskList } from "./render";
+
 export function addTask(description) {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
@@ -12,19 +15,27 @@ export function addTask(description) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-export function removeTask(index) {
+export function removeTask(index, elementList) {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
   if (index >= 1 && index <= tasks.length) {
     tasks.splice(index - 1, 1);
-
     for (let i = index - 1; i < tasks.length; i++) {
-      tasks[i].index = i + 1;
+      tasks[i].index = i;
     }
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    elementList.remove();
+   // console.log(elementList);
+    //console.log(tasks);
   }
 }
+
+
+
+
+
+
 
 export function changeToIcon(item) {
   const options = item.querySelector(".options");
@@ -57,6 +68,68 @@ export function handleTaskNameInput(event) {
   const newDescription = taskNameInput.value;
   editTaskDescription(index, newDescription);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
