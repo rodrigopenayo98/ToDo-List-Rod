@@ -37,32 +37,44 @@ const rotateIcons = (event) => {
   const trashElement = item.querySelector(".trash");
   const optionsElement = item.querySelector(".options");
 
-  if (selectedTask && selectedTask !== item) resetIcons(selectedTask);
+  if (selectedTask && selectedTask !== item) {
+    resetIcons(selectedTask);
+  }
 
   trashElement.style.display = "inline";
   optionsElement.style.display = "none";
   selectedTask = item;
 
-  console.log("rotateIcons se ejecutó");
+  item.style.border = "2px solid aquamarine";
 };
 
-const resetIcons = () => {
-  document.querySelectorAll(".trash, .options").forEach(element => {
-    element.style.display = element.classList.contains("trash") ? "none" : "inline";
-  });
-  console.log("resetIcons se ejecutó");
+const resetIcons = (item) => {
+  const trashElement = item.querySelector(".trash");
+  const optionsElement = item.querySelector(".options");
+
+  trashElement.style.display = "none";
+  optionsElement.style.display = "inline";
+  item.style.border = "1px solid rgb(215, 214, 214)";
 };
 
+const deselectItem = () => {
+  if (selectedTask) {
+    resetIcons(selectedTask);
+    selectedTask = null;
+  }
+};
 
 const callRotateItems = () => {
   const itemTask = Array.from(document.querySelectorAll(".item-task"));
   if (itemTask.length > 0) {
-    itemTask.forEach(item => item.addEventListener("click", rotateIcons));
-    document.addEventListener("click", event => {
-      if (!event.target.closest(".item-task")) {
-        resetIcons(selectedTask);
-        selectedTask = null;
-      }
+    itemTask.forEach(item => {
+      item.addEventListener("click", rotateIcons);
+      document.addEventListener("click", event => {
+        const clickedElement = event.target.closest(".item-task");
+        if (!clickedElement) {
+          deselectItem();
+        }
+      });
     });
   }
 };
