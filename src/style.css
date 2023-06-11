@@ -127,6 +127,7 @@ body {
 
 .trash {
   display: none;
+  cursor: pointer;
 }
 
 .text{

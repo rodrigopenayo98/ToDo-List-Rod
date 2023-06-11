@@ -15,7 +15,7 @@ const generateTaskList = () => {
          <span class="material-symbols-outlined options">
           more_vert
          </span>
-         <span class="material-symbols-outlined trash">delete</span>
+         <span onclick='removeTask(${id})' id='delete-${id}' class="material-symbols-outlined trash">delete</span>
       </li>`;
   });  
   callRotateItems();
@@ -79,6 +79,20 @@ const callRotateItems = () => {
   }
 };
 
+window.removeTask = () => {
+  const trash = [...document.querySelectorAll('.trash')];
+  trash.forEach((item) => {
+    item.addEventListener('click', () => {
+      localGet.splice(trash.indexOf(item), 1);
+      localGet.forEach((item, index) => {
+        item.index = index + 1;
+      });
+      localStorage.setItem('listStorage', JSON.stringify(localGet));
+      generateTaskList();
+    });
+  });
+};
 
 
-export { addTask, generateTaskList, rotateIcons };
+
+export { addTask, generateTaskList, rotateIcons};
