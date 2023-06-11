@@ -15,14 +15,14 @@ enter.addEventListener("click", () => {
 });
 
 
-window.onload = () => {
-  const itemTask = document.querySelector(".item-task");
-  console.log(itemTask);
-  if (itemTask) {
-    itemTask.addEventListener("click", rotateIcons);
-    console.log("si existe");
-  }
-};
+// window.onload = () => {
+//   const itemTask = document.querySelector(".item-task");
+//   console.log(itemTask);
+//   if (itemTask) {
+//     itemTask.addEventListener("click", rotateIcons);
+//     console.log("si existe");
+//   }
+// };
 
   
 
