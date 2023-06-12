@@ -24,7 +24,7 @@ const generateTaskList = () => {
 const addTask = (description, completed, index) => {
   const taskAdded = new structureTask(description, completed, index);
   localGet.push(taskAdded);
-  localStorage.setItem('listInMemory', JSON.stringify(localGet));
+  localStorage.setItem("listInMemory", JSON.stringify(localGet));
   setTimeout(() => {
     nameTask.value = '';
   }, 1000);
@@ -87,7 +87,7 @@ window.removeTask = () => {
       localGet.forEach((item, index) => {
         item.index = index + 1;
       });
-      localStorage.setItem('listStorage', JSON.stringify(localGet));
+      localStorage.setItem("listInMemory", JSON.stringify(localGet));
       generateTaskList();
     });
   });
