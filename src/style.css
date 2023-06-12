@@ -43,7 +43,7 @@ body {
 }
 
 #input-container {
-  width: 100%;
+  width: 448px;
   height: 50px;
   border: 1px solid rgb(215, 214, 214);
   display: flex;

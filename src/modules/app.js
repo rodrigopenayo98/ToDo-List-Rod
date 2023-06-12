@@ -80,18 +80,23 @@ const callRotateItems = () => {
 };
 
 window.removeTask = () => {
-  const trash = [...document.querySelectorAll('.trash')];
-  trash.forEach((item) => {
-    item.addEventListener('click', () => {
-      localGet.splice(trash.indexOf(item), 1);
-      localGet.forEach((item, index) => {
-        item.index = index + 1;
-      });
-      localStorage.setItem("listInMemory", JSON.stringify(localGet));
-      generateTaskList();
-    });
+  taskList.addEventListener('click', (event) => {
+    const trashElement = event.target.closest('.trash');
+    if (trashElement) {
+      const id = trashElement.id.split('-')[1];
+      const index = Array.from(taskList.children).indexOf(trashElement.parentNode);
+      if (index !== -1) {
+        localGet.splice(index, 1);
+        localGet.forEach((task, index) => {
+          task.index = index + 1;
+        });
+        localStorage.setItem("listInMemory", JSON.stringify(localGet));
+        generateTaskList();
+      }
+    }
   });
 };
+
 
 
 
