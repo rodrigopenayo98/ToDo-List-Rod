@@ -2,18 +2,20 @@ body {
   display: flex;
   justify-content: center;
   padding-top: 80px;
+  background-color: aquamarine;
 }
 
 #main-container {
   border: 1px solid #dad9d9;
   width: 450px;
   height: auto;
+  background-color: #fff;
 }
 
 #title-list {
   font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  color: rgb(0, 0, 0);
+  font-weight: 800;
+  color: #fff;
   font-size: 15px;
 }
 
@@ -26,6 +28,14 @@ body {
   color: grey;
 }
 
+.enter {
+  cursor: pointer;
+}
+
+#refresh {
+  color: #fff;
+}
+
 #title-list-container {
   display: flex;
   width: 420px;
@@ -33,17 +43,18 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px;
+  background-color: rgb(83, 196, 158);
 }
 
 #input-container {
-  width: 100%;
+  width: 448px;
   height: 50px;
-  border-top: 1px solid rgb(215, 214, 214);
+  border: 1px solid rgb(215, 214, 214);
   display: flex;
   align-items: center;
 }
 
-#text {
+#mainText {
   width: 390px;
   height: 20px;
   padding: 15px 5px 15px 15px;
@@ -52,7 +63,11 @@ body {
   font-style: italic;
 }
 
-#text::placeholder {
+#mainText:focus {
+  outline: none;
+}
+
+#mainText::placeholder {
   font-family: 'Open Sans', sans-serif;
   font-style: italic;
 }
@@ -68,11 +83,13 @@ body {
   border: none;
   color: #9f9c9c;
   background-color: #f0efef;
+  cursor: pointer;
 }
 
 #btn-clear:hover {
   text-decoration: underline;
   color: black;
+  background-color: rgb(83, 196, 158);
 }
 
 #taskList {
@@ -88,20 +105,47 @@ body {
   padding: 5px;
   display: flex;
   align-items: center;
-  border-top: 1px solid rgb(215, 214, 214);
+  border: 1px solid rgb(215, 214, 214);
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   color: rgb(0, 0, 0);
   font-size: 15px;
   position: relative;
+  cursor: pointer;
+}
+
+.item-task:active {
+  border: 2px solid aquamarine;
 }
 
 .checkbox {
-  margin-right: 390px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .task-name {
   position: absolute;
   left: 35px;
   top: 15px;
+}
+
+.trash {
+  display: none;
+  cursor: pointer;
+}
+
+.text {
+  height: 100%;
+  border: none;
+  width: 368px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.text:focus {
+  outline: none;
+  cursor: text;
 }

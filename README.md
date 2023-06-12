@@ -49,8 +49,9 @@ This is an application that has the function of being a reminder of pending task
 
 ### Key Features 
 
-- *[Add HTML]*
-- *[Add CSS]*
+- *[Add Functionality]*
+- *[Remove Functionality]*
+- *[Edit Description Functionality]*
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -110,9 +111,8 @@ Linters
 
 ## 🔭 Future Features <a name="future-features"></a>
 
--**[HTML]**
--**[CSS]**
--**[LINTERS]**
+-**[Responsive Design]**
+-**[Improve CSS Styles]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
