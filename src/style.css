@@ -28,6 +28,10 @@ body {
   color: grey;
 }
 
+.enter {
+  cursor: pointer;
+}
+
 #refresh {
   color: #fff;
 }

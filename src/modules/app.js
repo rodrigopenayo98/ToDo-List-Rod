@@ -1,5 +1,5 @@
-const localGet = require('./localStorage.js').default;
-const StructureTask = require('./itemTaskStructure.js').default;
+import localGet from './localStorage.js';
+import StructureTask from './itemTaskStructure.js';
 
 const taskList = document.querySelector('#taskList');
 const nameTask = document.querySelector('#mainText');

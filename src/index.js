@@ -1,6 +1,6 @@
-require('./style.css');
-const { addTask, generateTaskList } = require('./modules/app.js');
-const localGet = require('./modules/localStorage.js').default;
+import './style.css';
+import { addTask, generateTaskList } from './modules/app.js';
+import localGet from './modules/localStorage.js';
 
 const enter = document.querySelector('.enter');
 const text = document.querySelector('#mainText');
