@@ -1,19 +1,18 @@
 import './style.css';
-import { addTask , generateTaskList, rotateIcons } from './modules/app';
-import localGet from './modules/localStorage';
+import { addTask, generateTaskList } from './modules/app.js';
+import localGet from './modules/localStorage.js';
 
-const enter = document.querySelector(".enter");
-const text = document.querySelector("#mainText");
+const enter = document.querySelector('.enter');
+const text = document.querySelector('#mainText');
 
-window.addEventListener("load", () =>{
-  generateTaskList();
-})
-
-enter.addEventListener("click", () => {
-  addTask(text.value, false, localGet.length + 1);
+window.addEventListener('load', () => {
   generateTaskList();
 });
 
+enter.addEventListener('click', () => {
+  addTask(text.value, false, localGet.length + 1);
+  generateTaskList();
+});
 
 // window.onload = () => {
 //   const itemTask = document.querySelector(".item-task");
@@ -23,10 +22,6 @@ enter.addEventListener("click", () => {
 //     console.log("si existe");
 //   }
 // };
-
-  
-
-
 
 // const tasks = [
 //   { description: 'Do Exercise', completed: false, index: 1 },
