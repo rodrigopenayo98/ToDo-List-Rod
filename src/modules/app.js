@@ -70,6 +70,7 @@ const generateTaskList = () => {
 };
 
 const addTask = (description, completed, index) => {
+  // eslint-disable-next-line new-cap
   const taskAdded = new StructureTask(description, completed, index);
   localGet.push(taskAdded);
   localStorage.setItem('listInMemory', JSON.stringify(localGet));
