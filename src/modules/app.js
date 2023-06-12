@@ -11,7 +11,7 @@ const generateTaskList = () => {
       <li class="item-task">
          <input type="checkbox" class="checkbox" id="check-${id}" 
          ${task.completed ? 'checked' : ''}, "completed")'>
-         <input type="text" class="text" id="input-${id}" value='${task.description}' >
+         <input type="text" class="text" id="input-${id}" value="${task.description}" onchange="updateDescrip(${id})">
          <span class="material-symbols-outlined options">
           more_vert
          </span>
@@ -97,6 +97,20 @@ window.removeTask = () => {
   });
 };
 
+
+window.updateDescrip = (id) => {
+  const updateInput = document.querySelector(`#input-${id}`).value;
+  const updateCheckbox = document.querySelector(`#check-${id}`).checked;
+  
+  localGet.forEach((item) => {
+    if (item.index - 1 === id) {
+      item.description = updateInput;
+      item.completed = updateCheckbox;
+    }
+  });
+  
+  localStorage.setItem('listInMemory', JSON.stringify(localGet));
+}
 
 
 
