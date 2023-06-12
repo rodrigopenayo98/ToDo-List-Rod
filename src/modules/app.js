@@ -58,7 +58,7 @@ const generateTaskList = () => {
   localGet.forEach((task, id) => {
     taskList.innerHTML += `
       <li class="item-task">
-         <input type="checkbox" class="checkbox" id="check-${id}"         onchange="updateDescrip(${id})" ${task.completed ? 'checked' : ''}>
+         <input type="checkbox" class="checkbox" id="check-${id}" onchange="updateDescrip(${id})" ${task.completed ? 'checked' : ''}>
          <input type="text" class="text" id="input-${id}" value="${task.description}" onchange="updateDescrip(${id})">
          <span class="material-symbols-outlined options">
           more_vert
