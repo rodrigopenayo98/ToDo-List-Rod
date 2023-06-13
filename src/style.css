@@ -81,15 +81,15 @@ body {
   height: 100%;
   width: 100%;
   border: none;
-  color: #9f9c9c;
-  background-color: #f0efef;
+  color: rgb(255, 255, 255);
+  background-color: rgb(83, 196, 158);
   cursor: pointer;
 }
 
 #btn-clear:hover {
   text-decoration: underline;
   color: black;
-  background-color: rgb(83, 196, 158);
+  background-color: rgb(53, 148, 116);
 }
 
 #taskList {
