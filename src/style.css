@@ -20,11 +20,7 @@ body {
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
   color: grey;
 }
 
@@ -32,7 +28,8 @@ body {
   cursor: pointer;
 }
 
-#refresh {
+#refresh,
+.material-symbols-outlined {
   color: #fff;
 }
 
@@ -115,7 +112,7 @@ body {
 }
 
 .item-task:active {
-  border: 2px solid aquamarine;
+  border: 2px solid rgb(105, 233, 190);
 }
 
 .checkbox {
