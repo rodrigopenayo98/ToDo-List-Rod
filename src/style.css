@@ -115,7 +115,7 @@ body {
 }
 
 .item-task:active {
-  border: 2px solid aquamarine;
+  border: 2px solid rgb(105, 233, 190);
 }
 
 .checkbox {
