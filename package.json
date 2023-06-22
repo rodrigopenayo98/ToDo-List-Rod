@@ -50,6 +50,12 @@
     "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
-    "path": "^0.12.7"
+    "jsdom": "^22.1.0",
+    "jsdom-global": "^3.0.2",
+    "path": "^0.12.7",
+    "playwright": "^1.35.1",
+    "puppeteer": "^20.7.3",
+    "text-encoding": "^0.7.0",
+    "text-encoding-utf-8": "^1.0.2"
   }
 }

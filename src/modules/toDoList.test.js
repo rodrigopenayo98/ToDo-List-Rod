@@ -83,3 +83,26 @@ describe('removeTask', () => {
     }, 0);
   });
 });
+
+// updateDescription.test.js
+
+import updateDescription from './otherFunctions.js';
+
+describe('updateDescription', () => {
+  it('should update the description of an element in localGet', () => {
+    const localGet = [
+      { index: 0, description: 'Descripción anterior', completed: false },
+    ];
+
+    const updatedLocalGet = updateDescription(localGet, 0, 'Nueva descripción');
+
+    expect(updatedLocalGet).toEqual([
+      { index: 0, description: 'Nueva descripción', completed: false },
+    ]);
+  });
+});
+
+
+
+
+
