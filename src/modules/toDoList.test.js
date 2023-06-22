@@ -1,5 +1,11 @@
-const { describe, test } = require("@jest/globals");
-const { addTask } = require("./app.js");
+import {
+  updateDescription,
+  updateCompleted,
+  clearCompletedTasks,
+} from './otherFunctions.js';
+
+const { describe, test } = require('@jest/globals');
+const { addTask } = require('./app.js');
 
 const localStorageMock = (() => {
   let store = {};
@@ -26,113 +32,105 @@ document.body.innerHTML = `
   </ul>
 `;
 
-Object.defineProperty(window, "localStorage", { value: localStorageMock });
+Object.defineProperty(window, 'localStorage', { value: localStorageMock });
 
-describe("addTask", () => {
-  test("Adds a task to the list and updates localStorage", () => {
+describe('addTask', () => {
+  test('Adds a task to the list and updates localStorage', () => {
     localStorage.clear();
-    addTask("Descripción de la tarea", false, 0);
+    addTask('Descripción de la tarea', false, 0);
 
-    const taskList = document.getElementById("taskList");
+    const taskList = document.getElementById('taskList');
 
     expect(taskList.children.length).toBe(1);
 
-    expect(localStorage.getItem("listInMemory")).toEqual(
+    expect(localStorage.getItem('listInMemory')).toEqual(
       JSON.stringify([
         {
-          description: "Descripción de la tarea",
+          description: 'Descripción de la tarea',
           completed: false,
           index: 0,
         },
-      ])
+      ]),
     );
   });
 });
 
-describe("removeTask", () => {
-  test("Removes a task from the list and updates localStorage", () => {
+describe('removeTask', () => {
+  test('Removes a task from the list and updates localStorage', () => {
     localStorage.clear();
-    addTask("Description of task 1", false, 0);
-    addTask("Description of task 2", false, 1);
-    addTask("Description of task 3", false, 2);
+    addTask('Description of task 1', false, 0);
+    addTask('Description of task 2', false, 1);
+    addTask('Description of task 3', false, 2);
 
-    const taskList = document.getElementById("taskList");
-    const trashElement = taskList.querySelector(".trash");
+    const taskList = document.getElementById('taskList');
+    const trashElement = taskList.querySelector('.trash');
     const parentElement = trashElement.parentNode;
 
-    parentElement.dispatchEvent(new Event("click"));
+    parentElement.dispatchEvent(new Event('click'));
 
     setTimeout(() => {
-      const updatedTaskList = document.getElementById("taskList");
-      const removedElement = updatedTaskList.querySelector(".item-task");
+      const updatedTaskList = document.getElementById('taskList');
+      const removedElement = updatedTaskList.querySelector('.item-task');
       expect(removedElement).toBeNull();
-      expect(localStorage.getItem("listInMemory")).toEqual(
+      expect(localStorage.getItem('listInMemory')).toEqual(
         JSON.stringify([
           {
-            description: "Description of task 1",
+            description: 'Description of task 1',
             completed: false,
             index: 0,
           },
           {
-            description: "Description of task 3",
+            description: 'Description of task 3',
             completed: false,
             index: 1,
           },
-        ])
+        ]),
       );
     }, 0);
   });
 });
 
-// updateDescription.test.js
-
-import {
-  updateDescription,
-  updateCompleted,
-  clearCompletedTasks,
-} from "./otherFunctions.js";
-
-describe("updateDescription", () => {
-  it("should update the description of an element in localGet", () => {
+describe('updateDescription', () => {
+  it('should update the description of an element in localGet', () => {
     const localGet = [
-      { index: 0, description: "Descripción anterior", completed: false },
+      { index: 0, description: 'Descripción anterior', completed: false },
     ];
 
-    const updatedLocalGet = updateDescription(localGet, 0, "Nueva descripción");
+    const updatedLocalGet = updateDescription(localGet, 0, 'Nueva descripción');
 
     expect(updatedLocalGet).toEqual([
-      { index: 0, description: "Nueva descripción", completed: false },
+      { index: 0, description: 'Nueva descripción', completed: false },
     ]);
   });
 });
 
-describe("updateCompleted", () => {
-  it("should update the completed state of a task in localGet", () => {
+describe('updateCompleted', () => {
+  it('should update the completed state of a task in localGet', () => {
     const localGet = [
-      { index: 0, description: "Task 1", completed: false },
-      { index: 1, description: "Task 2", completed: false },
+      { index: 0, description: 'Task 1', completed: false },
+      { index: 1, description: 'Task 2', completed: false },
     ];
 
     const updatedLocalGet = updateCompleted(localGet, 1, true);
 
     expect(updatedLocalGet).toEqual([
-      { index: 0, description: "Task 1", completed: false },
-      { index: 1, description: "Task 2", completed: true },
+      { index: 0, description: 'Task 1', completed: false },
+      { index: 1, description: 'Task 2', completed: true },
     ]);
   });
 });
 
-describe("clearCompletedTasks", () => {
-  it("should clear completed tasks from the task list", () => {
+describe('clearCompletedTasks', () => {
+  it('should clear completed tasks from the task list', () => {
     const tasks = [
-      { id: 1, description: "Task 1", completed: true },
-      { id: 2, description: "Task 2", completed: false },
-      { id: 3, description: "Task 3", completed: true },
+      { id: 1, description: 'Task 1', completed: true },
+      { id: 2, description: 'Task 2', completed: false },
+      { id: 3, description: 'Task 3', completed: true },
     ];
 
     const updatedTasks = clearCompletedTasks(tasks);
 
-    const expectedTasks = [{ id: 2, description: "Task 2", completed: false }];
+    const expectedTasks = [{ id: 2, description: 'Task 2', completed: false }];
 
     expect(updatedTasks).toEqual(expectedTasks);
   });
