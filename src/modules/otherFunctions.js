@@ -25,3 +25,7 @@ export const updateCompleted = (localGet, id, newCompleted) => {
 
   return updatedLocalGet;
 };
+
+export const clearCompletedTasks = (tasks) => {
+  return tasks.filter((task) => !task.completed);
+};

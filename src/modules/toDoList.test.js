@@ -86,7 +86,7 @@ describe('removeTask', () => {
 
 // updateDescription.test.js
 
-import { updateDescription , updateCompleted } from './otherFunctions.js';
+import { updateDescription , updateCompleted, clearCompletedTasks } from './otherFunctions.js';
 
 describe('updateDescription', () => {
   it('should update the description of an element in localGet', () => {
@@ -117,6 +117,7 @@ describe('updateCompleted', () => {
     ]);
   });
 });
+
 
 
 
