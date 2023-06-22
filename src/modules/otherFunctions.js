@@ -1,6 +1,4 @@
-// updateDescription.js
-
-const updateDescription = (localGet, id, newDescription) => {
+export const updateDescription = (localGet, id, newDescription) => {
   const updatedLocalGet = localGet.map((item) => {
     if (item.index === id) {
       return {
@@ -14,5 +12,16 @@ const updateDescription = (localGet, id, newDescription) => {
   return updatedLocalGet;
 };
 
-export default updateDescription;
+export const updateCompleted = (localGet, id, newCompleted) => {
+  const updatedLocalGet = localGet.map((item) => {
+    if (item.index === id) {
+      return {
+        ...item,
+        completed: newCompleted,
+      };
+    }
+    return item;
+  });
 
+  return updatedLocalGet;
+};

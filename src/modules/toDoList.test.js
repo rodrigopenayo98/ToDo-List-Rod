@@ -86,7 +86,7 @@ describe('removeTask', () => {
 
 // updateDescription.test.js
 
-import updateDescription from './otherFunctions.js';
+import { updateDescription , updateCompleted } from './otherFunctions.js';
 
 describe('updateDescription', () => {
   it('should update the description of an element in localGet', () => {
@@ -101,6 +101,23 @@ describe('updateDescription', () => {
     ]);
   });
 });
+
+describe('updateCompleted', () => {
+  it('should update the completed state of a task in localGet', () => {
+    const localGet = [
+      { index: 0, description: 'Task 1', completed: false },
+      { index: 1, description: 'Task 2', completed: false },
+    ];
+
+    const updatedLocalGet = updateCompleted(localGet, 1, true);
+
+    expect(updatedLocalGet).toEqual([
+      { index: 0, description: 'Task 1', completed: false },
+      { index: 1, description: 'Task 2', completed: true },
+    ]);
+  });
+});
+
 
 
 
