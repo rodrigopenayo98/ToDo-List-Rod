@@ -1,3 +1,9 @@
+import {
+  updateDescription,
+  updateCompleted,
+  clearCompletedTasks,
+} from './otherFunctions.js';
+
 const { describe, test } = require('@jest/globals');
 const { addTask } = require('./app.js');
 
@@ -81,5 +87,51 @@ describe('removeTask', () => {
         ]),
       );
     }, 0);
+  });
+});
+
+describe('updateDescription', () => {
+  it('should update the description of an element in localGet', () => {
+    const localGet = [
+      { index: 0, description: 'Descripción anterior', completed: false },
+    ];
+
+    const updatedLocalGet = updateDescription(localGet, 0, 'Nueva descripción');
+
+    expect(updatedLocalGet).toEqual([
+      { index: 0, description: 'Nueva descripción', completed: false },
+    ]);
+  });
+});
+
+describe('updateCompleted', () => {
+  it('should update the completed state of a task in localGet', () => {
+    const localGet = [
+      { index: 0, description: 'Task 1', completed: false },
+      { index: 1, description: 'Task 2', completed: false },
+    ];
+
+    const updatedLocalGet = updateCompleted(localGet, 1, true);
+
+    expect(updatedLocalGet).toEqual([
+      { index: 0, description: 'Task 1', completed: false },
+      { index: 1, description: 'Task 2', completed: true },
+    ]);
+  });
+});
+
+describe('clearCompletedTasks', () => {
+  it('should clear completed tasks from the task list', () => {
+    const tasks = [
+      { id: 1, description: 'Task 1', completed: true },
+      { id: 2, description: 'Task 2', completed: false },
+      { id: 3, description: 'Task 3', completed: true },
+    ];
+
+    const updatedTasks = clearCompletedTasks(tasks);
+
+    const expectedTasks = [{ id: 2, description: 'Task 2', completed: false }];
+
+    expect(updatedTasks).toEqual(expectedTasks);
   });
 });
